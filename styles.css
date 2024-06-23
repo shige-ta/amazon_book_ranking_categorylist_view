@@ -1,0 +1,47 @@
+/* styles.css */
+#category-tabs {
+  /* 以下の設定は必要に応じて調整してください */
+  position: fixed; /* 要素を固定 */
+  background-color: #232f3e;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+
+.tab-list {
+  /* display: block; ブロック要素として表示 */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  /* position: fixed; 要素を固定位置に配置 */
+  -webkit-line-clamp: 10;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* overflow: hidden; */
+
+}
+
+.tab-item {
+  margin: 5px 0; /* タブ間の余白を設定 */
+}
+
+.tab-link {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.tab-link:hover {
+  background-color: #37475a;
+}
+
+@media (max-width: 768px) {
+  .tab-list {
+    justify-content: flex-start;
+  }
+}
