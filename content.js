@@ -16,6 +16,36 @@ function createTabs() {
     tabContainer.id = 'category-tabs';
     tabContainer.setAttribute('role', 'tablist'); // role属性を追加
 
+
+    // 検索コンテナの作成
+    const searchContainer = document.createElement('div');
+    searchContainer.id = 'search-container';
+
+    const searchInput = document.createElement('input');
+    searchInput.id = 'search-input';
+    searchInput.type = 'text';
+    searchInput.placeholder = '検索キーワードを入力';
+    searchInput.placeholder = '検索キーワードを入力';
+
+    // エンターキーが押されたときの処理
+    searchInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            performSearch();
+        }
+    });
+
+    const searchButton = document.createElement('button');
+    searchButton.id = 'search-button';
+    searchButton.textContent = '注文履歴内検索';
+    searchButton.onclick = performSearch;
+
+    searchContainer.appendChild(searchInput);
+    searchContainer.appendChild(searchButton);
+
+    tabContainer.appendChild(searchContainer);
+
+
     // Amazonギフトチャージボタンの作成
     const giftChargeButton = document.createElement('button');
     giftChargeButton.id = 'gift-charge-button';
@@ -37,6 +67,9 @@ function createTabs() {
     kindlehigawari.onclick = () => {
         window.location.href = 'https://www.amazon.co.jp/Kindle%E6%97%A5%E6%9B%BF%E3%82%8F%E3%82%8A/b?ie=UTF8&node=3338926051';
     };
+
+
+
 
     tabContainer.appendChild(kindlehigawari);
 
@@ -82,6 +115,16 @@ function createTabs() {
             tab.parentElement.classList.add('active');
         }
     });
+
+    // 検索を実行する関数
+    function performSearch() {
+        const searchQuery = encodeURIComponent(searchInput.value.trim());
+        if (searchQuery) {
+            const searchUrl = `https://www.amazon.co.jp/gp/legacy/order-history?opt=ab&search=${searchQuery}&_encoding=UTF8&ref_=ppx_yo2ov_dt_b_search`;
+            window.location.href = searchUrl;
+        }
+    }
+
 }
 
 // DOMContentLoaded イベントを使用して、DOMが完全に読み込まれた後に実行する
