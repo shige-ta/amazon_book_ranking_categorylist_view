@@ -16,6 +16,17 @@ function createTabs() {
     tabContainer.id = 'category-tabs';
     tabContainer.setAttribute('role', 'tablist'); // role属性を追加
 
+    // Amazonギフトチャージボタンの作成
+    const giftChargeButton = document.createElement('button');
+    giftChargeButton.id = 'gift-charge-button';
+    giftChargeButton.className = 'tab-link';
+    giftChargeButton.textContent = 'Amazon ギフトチャージ';
+    giftChargeButton.onclick = () => {
+        window.location.href = 'https://www.amazon.co.jp/combinedreload?ref_=gcui_b_e_cr_c_d';
+    };
+
+    tabContainer.appendChild(giftChargeButton);
+
     const tabList = document.createElement('ul');
     tabList.className = 'tab-list';
 
@@ -39,7 +50,6 @@ function createTabs() {
 
     tabContainer.appendChild(tabList);
 
-    // const rankingHeader = document.querySelector('div');
     if (categoryRoot) {
         categoryRoot.insertAdjacentElement('beforebegin', tabContainer);
     } else {
