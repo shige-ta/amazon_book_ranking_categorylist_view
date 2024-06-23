@@ -58,3 +58,15 @@
   margin-bottom: 10px; /* ギフトチャージボタンの下に余白を追加 */
   transition: background-color 0.3s ease;
 }
+#kindlehigawari{
+  display: block;
+  color: white;
+  background-color: #69fe96;
+  text-decoration: none;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-bottom: 10px; /* ギフトチャージボタンの下に余白を追加 */
+  transition: background-color 0.3s ease;
+}

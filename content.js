@@ -27,6 +27,21 @@ function createTabs() {
 
     tabContainer.appendChild(giftChargeButton);
 
+    
+
+    // Amazonギフトチャージボタンの作成
+    const kindlehigawari = document.createElement('button');
+    kindlehigawari.id = 'kindlehigawari';
+    kindlehigawari.className = 'tab-link';
+    kindlehigawari.textContent = 'Kindle 日替わり';
+    kindlehigawari.onclick = () => {
+        window.location.href = 'https://www.amazon.co.jp/Kindle%E6%97%A5%E6%9B%BF%E3%82%8F%E3%82%8A/b?ie=UTF8&node=3338926051';
+    };
+
+    tabContainer.appendChild(kindlehigawari);
+
+
+
     const tabList = document.createElement('ul');
     tabList.className = 'tab-list';
 
