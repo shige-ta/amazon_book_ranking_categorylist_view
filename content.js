@@ -68,11 +68,19 @@ function createTabs() {
         window.location.href = 'https://www.amazon.co.jp/Kindle%E6%97%A5%E6%9B%BF%E3%82%8F%E3%82%8A/b?ie=UTF8&node=3338926051';
     };
 
-
-
-
     tabContainer.appendChild(kindlehigawari);
 
+    // 欲しいものリストボタンの作成
+    const wishlistButton = document.createElement('button');
+    wishlistButton.id = 'wishlist-button';
+    wishlistButton.className = 'tab-link';
+    wishlistButton.textContent = '欲しいものリスト';
+    wishlistButton.onclick = () => {
+        window.location.href = 'https://www.amazon.co.jp/hz/wishlist/ls?requiresSignIn=1&ref_=nav_AccountFlyout_wl';
+    };
+
+    // 欲しいものリストボタンをタブコンテナに追加
+    tabContainer.appendChild(wishlistButton);
 
 
     const tabList = document.createElement('ul');
