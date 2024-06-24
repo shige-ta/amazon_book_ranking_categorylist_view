@@ -1,19 +1,6 @@
 /* body {
   padding-top: 200px; /* #category-tabs の高さに応じて調整 */
-} */
 
-#category-tabs {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px; /* 固定幅を設定 */
-  height: 100vh; /* ビューポートの高さいっぱいに設定 */
-  background-color: #232f3e;
-  padding: 10px;
-  box-shadow: 2px 0 4px rgba(0,0,0,0.1);
-  overflow-y: auto;
-  z-index: 1000;
-}
 
 
 .tab-list {
