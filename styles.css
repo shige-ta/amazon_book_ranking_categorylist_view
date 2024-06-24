@@ -1,12 +1,19 @@
-/* styles.css */
-#category-tabs {
-  /* 以下の設定は必要に応じて調整してください */
-  position: fixed; /* 要素を固定 */
-  background-color: #232f3e;
-  padding: 10px 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
+/* body {
+  padding-top: 200px; /* #category-tabs の高さに応じて調整 */
+} */
 
+#category-tabs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px; /* 固定幅を設定 */
+  height: 100vh; /* ビューポートの高さいっぱいに設定 */
+  background-color: #232f3e;
+  padding: 10px;
+  box-shadow: 2px 0 4px rgba(0,0,0,0.1);
+  overflow-y: auto;
+  z-index: 1000;
+}
 
 
 .tab-list {
@@ -23,8 +30,12 @@
 
 }
 
+
+
+
 .tab-item {
-  margin: 5px 0; /* タブ間の余白を設定 */
+  margin: 0;
+  width: 100%;
 }
 
 .tab-link {
@@ -34,8 +45,45 @@
   padding: 10px 15px;
   border-radius: 3px;
   transition: background-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* メインコンテンツのスタイル調整 */
+#zg_left_col1, #zg_left_col2, #zg_right_col1, #zg_right_col2 {
+  margin-left: 270px; /* #category-tabs の幅 + 余白 */
+}
+
+/* レスポンシブデザイン用 */
+@media (max-width: 768px) {
+  #category-tabs {
+    width: 100%;
+    height: auto;
+    max-height: 50vh;
+  }
+
+  body {
+    padding-top: 60px; /* モバイルでの #category-tabs の高さに応じて調整 */
+  }
+
+  #zg_left_col1, #zg_left_col2, #zg_right_col1, #zg_right_col2 {
+    margin-left: 0;
+  }
+}
+
+/* スクロールバーのスタイリング（オプション） */
+#category-tabs::-webkit-scrollbar {
+  width: 8px;
+}
+
+#category-tabs::-webkit-scrollbar-thumb {
+  background-color: #666;
+  border-radius: 4px;
+}
+
+#category-tabs::-webkit-scrollbar-track {
+  background-color: #333;
+}
 .tab-link:hover {
   background-color: #37475a;
 }
