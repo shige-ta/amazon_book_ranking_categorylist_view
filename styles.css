@@ -1,24 +1,18 @@
 /* body {
   padding-top: 200px; /* #category-tabs の高さに応じて調整 */
 
+/* 省略 */
 
-
+/* タブコンテナとリンクのスタイル */
 .tab-list {
-  /* display: block; ブロック要素として表示 */
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow-y: auto;
-  /* position: fixed; 要素を固定位置に配置 */
   -webkit-line-clamp: 10;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  /* overflow: hidden; */
-
 }
-
-
-
 
 .tab-item {
   margin: 0;
@@ -34,6 +28,11 @@
   transition: background-color 0.3s ease;
   width: 100%;
   box-sizing: border-box;
+}
+
+#category-tabs {
+  padding: 10px;
+  background-color: #37475A; /* タブコンテナの背景色 */
 }
 
 /* メインコンテンツのスタイル調整 */
@@ -71,6 +70,7 @@
 #category-tabs::-webkit-scrollbar-track {
   background-color: #333;
 }
+
 .tab-link:hover {
   background-color: #37475a;
 }
@@ -93,7 +93,8 @@
   margin-bottom: 10px; /* ギフトチャージボタンの下に余白を追加 */
   transition: background-color 0.3s ease;
 }
-#kindlehigawari{
+
+#kindlehigawari {
   display: block;
   color: white;
   background-color: #69fe96;
@@ -155,10 +156,17 @@
   opacity: 1;
 }
 
-/* ブラウザ間の一貫性のために */
-#search-input::-webkit-input-placeholder { color: #999; }
-#search-input::-moz-placeholder { color: #999; opacity: 1; }
-#search-input:-ms-input-placeholder { color: #999; }
+#search-input::-webkit-input-placeholder {
+  color: #999;
+}
+#search-input::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+#search-input:-ms-input-placeholder {
+  color: #999;
+}
+
 #wishlist-button {
   display: block;
   color: white;
@@ -185,3 +193,30 @@
   transform: translateY(1px);
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
+
+
+#random-product-container {
+  background-color: #232F3E;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#random-product-link {
+  display: block;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#random-product-image {
+  max-width: 100%;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+#random-product-image:hover {
+  transform: scale(1.05);
+}
+

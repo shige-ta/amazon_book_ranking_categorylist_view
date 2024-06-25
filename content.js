@@ -25,7 +25,6 @@ function createTabs() {
     searchInput.id = 'search-input';
     searchInput.type = 'text';
     searchInput.placeholder = '検索キーワードを入力';
-    searchInput.placeholder = '検索キーワードを入力';
 
     // エンターキーが押されたときの処理
     searchInput.addEventListener('keydown', (event) => {
@@ -59,7 +58,7 @@ function createTabs() {
 
     
 
-    // Amazonギフトチャージボタンの作成
+    // Kindle日替わりボタンの作成
     const kindlehigawari = document.createElement('button');
     kindlehigawari.id = 'kindlehigawari';
     kindlehigawari.className = 'tab-link';
@@ -82,7 +81,6 @@ function createTabs() {
     // 欲しいものリストボタンをタブコンテナに追加
     tabContainer.appendChild(wishlistButton);
 
-
     const tabList = document.createElement('ul');
     tabList.className = 'tab-list';
 
@@ -104,7 +102,7 @@ function createTabs() {
         tabList.appendChild(tabItem);
     });
 
-    tabContainer.appendChild(tabList);
+
 
     if (categoryRoot) {
         categoryRoot.insertAdjacentElement('beforebegin', tabContainer);
@@ -133,9 +131,73 @@ function createTabs() {
         }
     }
 
+   // おすすめ商品のランダム表示とカウント機能の追加
+   const productContainer = document.createElement('div');
+   productContainer.id = 'random-product-container';
+
+   const productLink = document.createElement('a');
+   productLink.id = 'random-product-link';
+   productLink.href = '#';
+
+   const productImage = document.createElement('img');
+   productImage.id = 'random-product-image';
+   productLink.appendChild(productImage);
+
+   const productTitle = document.createElement('div');
+   productTitle.id = 'random-product-title';
+   productContainer.appendChild(productLink);
+   productContainer.appendChild(productTitle);
+
+   let clickCount = 0;
+   const clickThreshold = 5;
+
+   productLink.addEventListener('click', (e) => {
+       e.preventDefault();
+       clickCount++;
+       displayRandomProduct();
+       if (clickCount >= clickThreshold && !document.getElementById('view-product-button')) {
+           viewProductButton.onclick = () => {
+               window.location.href = productLink.href;
+           };
+           productContainer.appendChild(viewProductButton);
+       }
+   });
+
+   tabContainer.appendChild(productContainer);
+   displayRandomProduct(); // 初期表示
+   tabContainer.appendChild(tabList);
+}
+function displayRandomProduct() {
+    const productItems = document.querySelectorAll('.zg-grid-general-faceout');
+    if (productItems.length === 0) {
+        console.log('No products found.');
+        return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * productItems.length);
+    const randomProduct = productItems[randomIndex];
+
+    const productLink = document.getElementById('random-product-link');
+    const productImage = document.getElementById('random-product-image');
+    const productTitle = document.getElementById('random-product-title');
+
+    const imageElement = randomProduct.querySelector('img');
+    // const titleElement = randomProduct.querySelector('.p13n-sc-truncated');
+    // const linkElement = randomProduct.querySelector('a');
+    console.log(imageElement)
+    // console.log(titleElement)
+    // console.log(linkElement)
+    if (imageElement) {
+        productImage.src = imageElement.src;
+        // productImage.alt = titleElement.textContent;
+        // productLink.href = linkElement.href;
+        // productTitle.textContent = titleElement.textContent;
+    } else {
+        console.log('Product information not found.');
+    }
 }
 
-// DOMContentLoaded イベントを使用して、DOMが完全に読み込まれた後に実行する
+
 document.addEventListener('DOMContentLoaded', () => {
     createTabs();
 });
